@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Tooltip } from "react-tooltip";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import ReactTooltip from 'react-tooltip';
 
-import { AppWrap, MotionWrap } from "../../wrapper";
-import { urlFor, client } from "../../client";
-import "./Skills.css";
+import { AppWrap, MotionWrap } from '../../wrapper';
+import { urlFor, client } from '../../client';
+import './Skills.scss';
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
@@ -25,7 +25,7 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="head-text">My Skills</h2>
+      <h2 className="head-text">Skills & Experiences</h2>
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
@@ -46,9 +46,12 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
-        {/* <div className="app__skills-exp">
+        <div className="app__skills-exp">
           {experiences.map((experience) => (
-            <motion.div className="app__skills-exp-item" key={experience.year}>
+            <motion.div
+              className="app__skills-exp-item"
+              key={experience.year}
+            >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
@@ -66,27 +69,27 @@ const Skills = () => {
                       <h4 className="bold-text">{work.name}</h4>
                       <p className="p-text">{work.company}</p>
                     </motion.div>
-                    <Tooltip
+                    <ReactTooltip
                       id={work.name}
                       effect="solid"
                       arrowColor="#fff"
                       className="skills-tooltip"
                     >
                       {work.desc}
-                    </Tooltip>
+                    </ReactTooltip>
                   </>
                 ))}
               </motion.div>
             </motion.div>
           ))}
-        </div> */}
+        </div>
       </div>
     </>
   );
 };
 
 export default AppWrap(
-  MotionWrap(Skills, "app__skills"),
-  "skills",
-  "app__whitebg"
+  MotionWrap(Skills, 'app__skills'),
+  'skills',
+  'app__whitebg',
 );
